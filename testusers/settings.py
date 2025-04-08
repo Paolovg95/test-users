@@ -11,17 +11,20 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+os.path.join(BASE_DIR, '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%4h$9yv*)n28mhx1xvq86p(t54h3_lbri*bjbb^fu9vf&(@enb'
-
+SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -69,7 +72,7 @@ INSTALLED_APPS = [
 # ANY MAIL
 ANYMAIL = {
     # (exact settings here depend on your ESP...)
-    "MAILGUN_API_KEY": "6e58e9d121695bc1212322568effb2b3-623424ea-6557b0f3",
+    "MAILGUN_API_KEY": env('MAILGUN_KEY'),
     "MAILGUN_SENDER_DOMAIN": 'sandbox4993f5a920264c2ca031916a68f8c2e6.mailgun.org',  # your Mailgun domain, if needed
 }
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
