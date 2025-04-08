@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==5.1.2"
+django-allauth = "*"
+django-anymail = {extras = ["mailgun"], version = "*"}
+django-countries = "*"
+django-invitations = "*"
+django-ninja = "*"
+django-extensions = "*"
+ipython = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

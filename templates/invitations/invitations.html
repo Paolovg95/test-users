@@ -1,0 +1,9 @@
+{% load custom_filters %}
+<h1>Send your invite</h1>
+<h2>Please enter email of the user to join the company</h2>
+
+<form action="{% url 'company_invitation' company %}" method="POST">
+  {% csrf_token %}
+<input type="text" id="email" name="email">
+<button type="submit">Send invite</button>
+</form>

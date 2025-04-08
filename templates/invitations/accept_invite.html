@@ -1,0 +1,14 @@
+<h1>Invitation from {{ company.name }}</h1>
+<form method="POST" action="{% url 'accept_invitation' %}">
+  {% csrf_token %}
+  <input type="hidden" name="token" value="{{ request.GET.token }}">
+  <label for="invitee">Invite From</label>
+  <span name="invitee"><strong>{{ invite.inviter.email }}</strong></span>
+  <br>
+  <label for="invitee">Invite for</label>
+  <span name="invitee"><strong>{{ invite.email }}</strong></span>
+  {{ user_form.as_p }}
+  {{ profile_form.as_p }}
+  <button type="submit">Sign Up</button>
+</form>
+</form>
